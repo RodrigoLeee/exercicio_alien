@@ -20,6 +20,14 @@
             width: larguraJogo,
             height: alturaJogo,
 
+            // Ativando a física no jogo
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 300 }
+                }
+            },
+
             scene: {
                 preload: preload,
                 create: create,
@@ -30,13 +38,21 @@
         // o que acontece aqui?
         const game = new Phaser.Game(config);
 
+        var alien;
+
         function preload() {
             this.load.image('background', 'assets/bg.png');
+
+            //Carrega imagem alien
+            this.load.image('player', 'assets/alienigena.png');
         }
 
         function create() {
             // o que acontece aqui?
             this.add.image(larguraJogo/2, alturaJogo/2, 'background');
+
+            //Cria o alienigena
+            alien = this.physics.add.sprite(larguraJogo/2, 0, 'player');
         }
 
         function update() {
