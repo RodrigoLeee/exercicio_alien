@@ -24,7 +24,8 @@
             physics: {
                 default: 'arcade',
                 arcade: {
-                    gravity: { y: 300 }
+                    gravity: { y: 300 },
+                    debug: true
                 }
             },
 
@@ -53,9 +54,33 @@
 
             //Cria o alienigena
             alien = this.physics.add.sprite(larguraJogo/2, 0, 'player');
-        }
+            alien.setCollideWorldBounds(true)
+
+            teclado = this.input.keyboard.createCursorKeys();        }
 
         function update() {
+            //Movimento para esquerda
+            if (teclado.left.isDown) {
+                alien.setVelocityX(-150); 
+            }
+            //Movimento para direita
+            else if (teclado.right.isDown) {
+                alien.setVelocityX(150);
+            }
+            //Sem nenhum movimento horizontal
+            else {
+                alien.setVelocityX(0)
+            }
+            
+            //Movimento para cima
+            if (teclado.up.isDown) {
+                alien.setVelocityY(-150);
+            }
+            //Movimento para baixo
+            else {
+
+            }
+
         }
     </script>
 </body>
