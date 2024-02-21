@@ -42,30 +42,52 @@
         var alien;
         var teclado;
         var fogo;
+        var plataforma;
+        var moeda;
+        var pontuacao;
+        var placar;
 
         function preload() {
             this.load.image('background', 'assets/bg.png');
 
-            //Carrega imagem alien
+            //Carrega imagem do alien
             this.load.image('player', 'assets/alienigena.png');
 
-            //Carrega imagem fogo
+            //Carrega imagem do fogo
             this.load.image('turbo_nave', 'assets/turbo.png');
+
+            //Carrega imagem da plataforma
+            this.load.image('plataforma_tijolo', 'assets/tijolos.png')
+
+            //Carrega imagem da moeda
+            this.load.image('moeda', 'assets/moeda.png');
         }
 
         function create() {
-            // o que acontece aqui?
+            //Cria o fundo
             this.add.image(larguraJogo/2, alturaJogo/2, 'background');
 
+            //Cria o "foguinho" do modo turbo
+            fogo = this.add.sprite(0, 0, 'turbo_nave');
+            fogo.setVisible(false)
+            
             //Cria o alienigena
             alien = this.physics.add.sprite(larguraJogo/2, 0, 'player');
             alien.setCollideWorldBounds(true)
-
-            teclado = this.input.keyboard.createCursorKeys();   
+            teclado = this.input.keyboard.createCursorKeys();
             
-            //Adiciona o "foguinho" do modo turbo
-            fogo = this.add.sprite(0, 0, 'turbo_nave');
-            fogo.setVisible(false)
+            //Cria a plataforma
+            plataforma = this.physics.add.staticImage(larguraJogo/2, alturaJogo/2, 'plataforma_tijolo');
+            this.physics.add.collider(alien, plataforma);
+
+            //Cria a moeda
+            moeda = this.physics.add.sprite(larguraJogo/2, 0, 'moeda');
+            moeda.setCollideWorldBounds(true);
+            moeda.setBounce(0.7);
+            this.physics.add.collider(moeda, plataforma);
+
+            //Cria o placar
+            palcar = this.add.text(50, 50, 'Moedas:' + pontuacao, {fontSize: '45px', fill:'#495613'});
         }
 
         function update() {
