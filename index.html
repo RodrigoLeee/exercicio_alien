@@ -40,12 +40,17 @@
         const game = new Phaser.Game(config);
 
         var alien;
+        var teclado;
+        var fogo;
 
         function preload() {
             this.load.image('background', 'assets/bg.png');
 
             //Carrega imagem alien
             this.load.image('player', 'assets/alienigena.png');
+
+            //Carrega imagem fogo
+            this.load.image('turbo_nave', 'assets/turbo.png');
         }
 
         function create() {
@@ -56,7 +61,12 @@
             alien = this.physics.add.sprite(larguraJogo/2, 0, 'player');
             alien.setCollideWorldBounds(true)
 
-            teclado = this.input.keyboard.createCursorKeys();        }
+            teclado = this.input.keyboard.createCursorKeys();   
+            
+            //Adiciona o "foguinho" do modo turbo
+            fogo = this.add.sprite(0, 0, 'turbo_nave');
+            fogo.setVisible(false)
+        }
 
         function update() {
             //Movimento para esquerda
@@ -67,20 +77,29 @@
             else if (teclado.right.isDown) {
                 alien.setVelocityX(150);
             }
-            //Sem nenhum movimento horizontal
+            //Sem nenhum movimento horizontal 
             else {
                 alien.setVelocityX(0)
             }
             
-            //Movimento para cima
+            //Movimento para cima eixo y
             if (teclado.up.isDown) {
                 alien.setVelocityY(-150);
+                ativarTurbo();
             }
-            //Movimento para baixo
+            //Nenhuma movimento eixo y
             else {
-
+                semTurbo();
             }
+            fogo.setPosition(alien.x, alien.y + alien.height/2);
+        }
 
+        function ativarTurbo() {
+            fogo.setVisible(true);
+        }
+
+        function semTurbo() {
+            fogo.setVisible(false)
         }
     </script>
 </body>
