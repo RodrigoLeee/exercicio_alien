@@ -87,7 +87,7 @@
             this.physics.add.collider(moeda, plataforma);
 
             //Cria o placar
-            placar = this.add.text(50, 50, 'Moedas:' + pontuacao, {fontSize: '45px', fill:'#495613'});
+            placar = this.add.text(50, 50, 'Moedas:'+ pontuacao, {fontSize: '45px', fill:'#495613'});
 
             //Quando ALIEN entra em contato com a MOEDA
             this.physics.add.overlap(alien, moeda, function() {
@@ -98,7 +98,7 @@
                 moeda.setPosition(posicaoMoeda_Y, 100); //ajusta a posição da moeda
                 
                 pontuacao +=1; //soma pontuação
-                placar.setTEXT('Moedas:' + pontuacao); //atualiza texto do placar
+                placar.setText('Moedas:' + pontuacao); //atualiza texto do placar
 
                 moeda.setVisible(true); //ativa a visão da "nova moeda"
             });
