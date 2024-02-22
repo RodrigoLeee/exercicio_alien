@@ -39,14 +39,15 @@
         // o que acontece aqui?
         const game = new Phaser.Game(config);
 
-        var alien;
-        var teclado;
-        var fogo;
+        var alien; //Define a variável do alien
+        var teclado; //Define a variável do teclado
+        var fogo; //Define a variável do fogo
         var plataforma;
         var plataforma2;
         var moeda;
-        var pontuacao = -1;
+        var pontuacao = -1; //Pontuacao = -1 pois entra em contato com a moeda no começo
         var placar;
+        var array_opcional = []; //PRECISO CRIAR LISTA
 
         function preload() {
             this.load.image('background', 'assets/bg.png');
@@ -131,21 +132,21 @@
             //Movimento para cima eixo y
             if (teclado.up.isDown) {
                 alien.setVelocityY(-150);
-                ativarTurbo();
+                ativarTurbo(); //CHAMA função 'ativarTurbo', torna o turbo visível
             }
             //Nenhuma movimento eixo y
             else {
-                semTurbo();
+                semTurbo(); //CHAMA função 'semTurbo', torna o turbo invisível
             }
             fogo.setPosition(alien.x, alien.y + alien.height/2);
         }
 
         function ativarTurbo() {
-            fogo.setVisible(true);
+            fogo.setVisible(true); //Torna o fogo do turbo visível
         }
 
         function semTurbo() {
-            fogo.setVisible(false)
+            fogo.setVisible(false); //Torna o fogo do turbo invisível
         }
     </script>
 </body>
