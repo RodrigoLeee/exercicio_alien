@@ -43,8 +43,9 @@
         var teclado;
         var fogo;
         var plataforma;
+        var plataforma2;
         var moeda;
-        var pontuacao = 0;
+        var pontuacao = -1;
         var placar;
 
         function preload() {
@@ -79,6 +80,10 @@
             //Cria a plataforma
             plataforma = this.physics.add.staticImage(larguraJogo/2, alturaJogo/2, 'plataforma_tijolo');
             this.physics.add.collider(alien, plataforma);
+
+            //Plataforma2
+            plataforma2 = this.physics.add.staticImage(larguraJogo/4, alturaJogo/4, 'plataforma_tijolo');
+            this.physics.add.collider(alien, plataforma2);
 
             //Cria a moeda
             moeda = this.physics.add.sprite(larguraJogo/2, 0, 'moeda');
