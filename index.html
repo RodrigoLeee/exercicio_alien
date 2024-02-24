@@ -39,16 +39,17 @@
         // o que acontece aqui?
         const game = new Phaser.Game(config);
 
+        //Variáveis contendo um item cada.
         var alien; //Define a variável do alien
         var teclado; //Define a variável do teclado
         var fogo; //Define a variável do fogo
-        var plataforma;
-        var plataforma2;
         var moeda;
         var pontuacao = -1; //Pontuacao = -1 pois entra em contato com a moeda no começo
         var placar;
-        var lista_plataforma = ['plataforma_tijolo' , 'plataforma2']
-        var end_plataforma = ['assets/tijolos.png', 'assets/tijolos2.png']
+
+        //Listas com o nome das plataformas e a localização/path
+        var lista_plataforma = ['plataforma_tijolo' , 'plataforma2'] //Lista com nome das plataformas
+        var end_plataforma = ['assets/tijolos.png', 'assets/tijolos2.png'] //Lista com path/endereço das plataformas
         
         function preload() {
             this.load.image('background', 'assets/bg.png');
@@ -59,15 +60,10 @@
             //Carrega imagem do fogo
             this.load.image('turbo_nave', 'assets/turbo.png');
 
-            for (var i in lista_plataforma) {
-                console.log(i)
+            //For loop que carrega plataformas utilizando as listas com as plataformas
+            for (var x in lista_plataforma) {
+                this.load.image(lista_plataforma[x], end_plataforma[x]);
             }
-
-            //Carrega imagem da plataforma
-            //this.load.image('plataforma_tijolo', 'assets/tijolos.png')
-
-            //Carrega a imagem da plataform2
-            //this.load.image('plataforma2', 'assets/tijolos2.png')
 
             //Carrega imagem da moeda
             this.load.image('moeda', 'assets/moeda.png');
