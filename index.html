@@ -47,8 +47,9 @@
         var moeda;
         var pontuacao = -1; //Pontuacao = -1 pois entra em contato com a moeda no começo
         var placar;
-        var array_opcional = []; //PRECISO CRIAR LISTA
-
+        var lista_plataforma = ['plataforma_tijolo' , 'plataforma2']
+        var end_plataforma = ['assets/tijolos.png', 'assets/tijolos2.png']
+        
         function preload() {
             this.load.image('background', 'assets/bg.png');
 
@@ -58,11 +59,15 @@
             //Carrega imagem do fogo
             this.load.image('turbo_nave', 'assets/turbo.png');
 
+            for (var i in lista_plataforma) {
+                console.log(i)
+            }
+
             //Carrega imagem da plataforma
-            this.load.image('plataforma_tijolo', 'assets/tijolos.png')
+            //this.load.image('plataforma_tijolo', 'assets/tijolos.png')
 
             //Carrega a imagem da plataform2
-            this.load.image('plataforma2', 'assets/tijolos2.png')
+            //this.load.image('plataforma2', 'assets/tijolos2.png')
 
             //Carrega imagem da moeda
             this.load.image('moeda', 'assets/moeda.png');
