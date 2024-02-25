@@ -48,6 +48,7 @@
         var placar; //Define a variável do placar
 
         //Listas com o nome das plataformas e a localização/path
+        //LISTA, uma que da o nome das plataformas, outra com a localizações
         var lista_plataforma = ['plataforma_tijolo' , 'plataforma2'] //Lista com nome das plataformas
         var end_plataforma = ['assets/tijolos.png', 'assets/tijolos2.png'] //Lista com path/endereço das plataformas
         
@@ -61,6 +62,7 @@
             this.load.image('turbo_nave', 'assets/turbo.png');
 
             //For loop que carrega plataformas utilizando as listas com as plataformas
+            //For loop não funcionaria se as listas não estivessem na mesma ordem, cada uma delas
             for (var x in lista_plataforma) {
                 this.load.image(lista_plataforma[x], end_plataforma[x]);
             }
