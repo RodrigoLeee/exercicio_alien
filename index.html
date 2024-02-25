@@ -47,6 +47,7 @@
         var pontuacao = -1; //Pontuacao = -1 pois entra em contato com a moeda no começo
         var placar; //Define a variável do placar
 
+        //PRIMEIRO E SEGUNDO OBSTÁCULO DENTRO DAS LISTAS
         //LISTAS IMPLEMENTADAS //LISTAS IMPLEMENTADAS //LISTAS IMPLEMENTADAS
         //LISTA, uma que da o nome das plataformas, outra com a localizações
         var lista_plataforma = ['plataforma_tijolo' , 'plataforma2'] //Lista com nome das plataformas
@@ -64,6 +65,7 @@
 
             //For loop que carrega plataformas utilizando as listas com as plataformas
             //For loop não funcionaria se as listas não estivessem na mesma ordem, cada uma delas
+            //PRIMEIRO E SEUGNDO OBSTÁCULO
             for (var x in lista_plataforma) {
                 this.load.image(lista_plataforma[x], end_plataforma[x]);
             }
