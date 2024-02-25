@@ -22,10 +22,10 @@
 
             // Ativando a física no jogo
             physics: {
-                default: 'arcade',
-                arcade: {
-                    gravity: { y: 300 },
-                    debug: true
+                default: 'arcade', //Nome 'arcade' como sendo o default
+                arcade: { //Define o que é o arcade
+                    gravity: { y: 300 }, //Define a gravidade, no eixo y
+                    debug: true //Debug = true para ver a fisica do jogo e os elementos
                 }
             },
 
@@ -43,9 +43,9 @@
         var alien; //Define a variável do alien
         var teclado; //Define a variável do teclado
         var fogo; //Define a variável do fogo
-        var moeda;
+        var moeda; //Define a variável da moeda
         var pontuacao = -1; //Pontuacao = -1 pois entra em contato com a moeda no começo
-        var placar;
+        var placar; //Define a variável do placar
 
         //Listas com o nome das plataformas e a localização/path
         var lista_plataforma = ['plataforma_tijolo' , 'plataforma2'] //Lista com nome das plataformas
